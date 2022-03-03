@@ -8,7 +8,7 @@ podTemplate(containers: [
   ]) {
 
     node(POD_LABEL) {
-      notifyStarted()
+      notifyStarted( slackSend (message: STARTED ${env.JOB_NAME}))
         stage('Get a Maven project') {
             container('jnlp') {
                 stage('Shell Execution') {
