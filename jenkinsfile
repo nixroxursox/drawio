@@ -22,7 +22,7 @@ podTemplate(containers: [
 		}
             }
         }
-      } catch e {
+      } (catch e) {
         slackSend (message: "FAILED")
     }
   }
