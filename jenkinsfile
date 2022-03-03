@@ -18,8 +18,7 @@ podTemplate(containers: [
                     '''
                 }
          stage('Notify Concerned Parties')	{
-		notifySuccessful()
-		}
+		slackSend (message "Job Completed: ${env.BUILD_NUMBER} ${env.JOB_NAME}")
             }
         }
       } catch (e) {
