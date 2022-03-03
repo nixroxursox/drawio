@@ -8,6 +8,7 @@ podTemplate(containers: [
   ]) {
 
     node(POD_LABEL) {
+      notifyStarted()
         stage('Get a Maven project') {
             container('jnlp') {
                 stage('Shell Execution') {
@@ -15,6 +16,9 @@ podTemplate(containers: [
                     echo "Hello! I am executing shell"
                     '''
                 }
+         stage('Notify Concerned Parties')	{
+		notifySuccessful()
+		}
             }
         }
 
