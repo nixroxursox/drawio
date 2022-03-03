@@ -5,7 +5,7 @@ podTemplate(containers: [
         )
   ]) {
 
-    node(kube-agent) {
+    node(kubeagent) {
         stage('Get a Maven project') {
             container('jnlp') {
                 stage('Shell Execution') {
