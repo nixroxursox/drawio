@@ -21,6 +21,7 @@ podTemplate(containers: [
 		slackSend (message: "Job Completed: ${env.BUILD_NUMBER} ${env.JOB_NAME}")
             }
         }
+      }
       } catch (e) {
         slackSend (message: "FAILED")
     }
