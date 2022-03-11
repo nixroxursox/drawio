@@ -2,7 +2,7 @@
 
 podTemplate(containers: [
     containerTemplate(
-        name: 'jnlp', 
+        name: 'jnlp',
         image: 'jenkins/inbound-agent:latest'
         )
   ]) {
@@ -28,7 +28,9 @@ podTemplate(containers: [
   }
 }
 
-def notifyStarted() { /* .. */ }
+def notifyStarted() {
+    slackSend (message: "Triggered by webhook Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    }
 
 def notifySuccessful() { /* .. */ }
 
@@ -42,4 +44,3 @@ def notifyFailed() {
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
-
