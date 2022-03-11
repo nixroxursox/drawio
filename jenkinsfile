@@ -9,7 +9,7 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
       try {
-      slackSend (message: "STARTED ${env.JOB_NAME}")
+      notifyStarted(message: "STARTED ${env.JOB_NAME}")
         stage('Get a Maven project') {
             container('jnlp') {
                 stage('Shell Execution') {
@@ -23,7 +23,7 @@ podTemplate(containers: [
         }
       }
       } catch (e) {
-        slackSend (message: "FAILED")
+        notifyFailed()
     }
   }
 }
